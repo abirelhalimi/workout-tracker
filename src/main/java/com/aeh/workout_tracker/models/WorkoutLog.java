@@ -11,6 +11,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Past;
 
 @Entity
 @SequenceGenerator(name="WOLOG_SQ", sequenceName="wolog_sequence")
@@ -20,9 +22,11 @@ public class WorkoutLog {
     @GeneratedValue(generator="WOLOG_SQ", strategy=GenerationType.AUTO)
     private Long id;
 
+    @Past
     private LocalDate date;
     
-    private int duration;
+    @Min(5)
+    private int duration; // minutes
 
     private String notes;
 

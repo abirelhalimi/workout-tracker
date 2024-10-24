@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity(name = "users")
 @SequenceGenerator(name = "USER_SQ", sequenceName = "user_sequence")
@@ -14,10 +17,14 @@ public class User {
     @GeneratedValue(generator = "USER_SQ", strategy = GenerationType.AUTO)
     private Long id;
 
+    @Email
     private String email;
     
+    @NotEmpty
+    @Size(min=6)
     private String password;
 
+    @NotEmpty
     private String firstName;
 
     public Long getId() {

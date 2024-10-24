@@ -10,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @SequenceGenerator(name="EXERCISE_SQ", sequenceName="exercise_sq")
@@ -19,6 +20,7 @@ public class Exercise {
     @GeneratedValue(generator="EXERCISE_SQ", strategy=GenerationType.AUTO)
     private Long id;
 
+    @NotEmpty
     private String name;
 
     @ManyToMany
@@ -27,6 +29,7 @@ public class Exercise {
         joinColumns = @JoinColumn(name="exercise_id"),
         inverseJoinColumns = @JoinColumn(name = "muscle_group_id")
     )
+    @NotEmpty
     private Set<MuscleGroup> MuscleGroups;
 
     public Long getId() {

@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @SequenceGenerator(name="MUSCLE_SQ", sequenceName="muscle_sequence")
@@ -14,6 +15,7 @@ public class MuscleGroup {
     @GeneratedValue(generator="MUSCLE_SQ", strategy=GenerationType.AUTO)
     private Long id;
 
+    @NotEmpty
     private String name;
 
     public Long getId() {

@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.Min;
 
 @Entity
 @SequenceGenerator(name="ELOG_SQ", sequenceName="elog_sequence")
@@ -15,8 +16,10 @@ public class ExerciseLog {
     @GeneratedValue(generator="ELOG_SQ", strategy=GenerationType.AUTO)
     private Long id;
 
+    @Min(1)
     private int sets;
 
+    @Min(1)
     private int reps;
 
     private float weight;

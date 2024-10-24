@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @SequenceGenerator(name = "WOPLAN_SQ", sequenceName = "woplan_sequence")
@@ -14,6 +15,7 @@ public class WorkoutPlan {
     @GeneratedValue(generator="WOPLAN_SQ", strategy=GenerationType.AUTO)
     private Long id;
 
+    @NotEmpty
     private String name;
 
     private String description;
