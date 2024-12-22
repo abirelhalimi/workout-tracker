@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Size;
 public class User {
     
     @Id
-    @GeneratedValue(generator = "USER_SQ", strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "USER_SQ", strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Email
