@@ -8,11 +8,11 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.validation.constraints.NotEmpty;
 
 @Entity
-@SequenceGenerator(name="MUSCLE_SQ", sequenceName="muscle_sequence")
+@SequenceGenerator(name = "MUSCLE_SQ", sequenceName = "muscle_sequence")
 public class MuscleGroup {
-    
+
     @Id
-    @GeneratedValue(generator="MUSCLE_SQ", strategy=GenerationType.AUTO)
+    @GeneratedValue(generator = "MUSCLE_SQ", strategy = GenerationType.AUTO)
     private Long id;
 
     @NotEmpty
@@ -33,6 +33,4 @@ public class MuscleGroup {
     public void setName(String name) {
         this.name = name;
     }
-
-
 }
